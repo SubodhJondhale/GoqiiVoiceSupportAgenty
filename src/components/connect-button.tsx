@@ -43,7 +43,7 @@ export function ConnectButton() {
       <Button
         onClick={handleConnectionToggle}
         disabled={isConnecting || shouldConnect} // Use global state
-        className="text-sm font-semibold bg-[#35b400] text-white rounded-full"
+        className="text-sm font-semibold bg-[#35b400] text-white rounded-xl shadow-none"
       >
         {isConnecting || shouldConnect ? (
           <>
