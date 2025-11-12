@@ -14,13 +14,13 @@ export function ChatControls({
   onToggleEdit,
 }: ChatControlsProps) {
   return (
-  <div className="absolute top-4 left-5 right-2 flex justify-between">
+    <div className="absolute top-4 right-4 flex justify-end">
       <div className="flex gap-2">
         <ConfigurationFormDrawer>
           <Button
             variant="outline"
             size="newSize"
-            className="lg:hidden bg-white bg-opacity-70"
+            className="text-neutral-50 bg-white-500 bg-opacity-100"
           >
             <Settings className="h-10 w-10 text-black opacity-60" />
           </Button>
