@@ -70,7 +70,7 @@ const Shape: React.FC<{ volume: number; state: AgentState }> = ({
       );
       groupRef.current.scale.setScalar(scale);
 
-      const targetHex = isDisconnected ? disconnectedColor : accentColor;
+      const targetHex = accentColor;
       targetColor.current.set(targetHex);
       emissiveColor.current.lerp(targetColor.current, 0.1);
 
@@ -80,7 +80,8 @@ const Shape: React.FC<{ volume: number; state: AgentState }> = ({
           const material = child.material as THREE.MeshStandardMaterial;
           if (material) {
             material.emissive = emissiveColor.current;
-            material.emissiveIntensity = isDisconnected ? 0.5 : volume > 0 ? 3.5 : 0.25;
+            //material.emissiveIntensity = isDisconnected ? 0.5 : volume > 0 ? 3.5 : 0.25;
+            material.emissiveIntensity = 0.75;
           }
         }
       });
@@ -274,7 +275,7 @@ const Shape: React.FC<{ volume: number; state: AgentState }> = ({
     <group ref={groupRef}>
       {/* Colored sections */}
       {sections.map((section, index) => {
-        const baseColor = isDisconnected ? disconnectedColor : section.color;
+        const baseColor = section.color;
         const texture = createSolidColorTexture(baseColor);
 
         const material = new THREE.MeshStandardMaterial({
@@ -297,7 +298,7 @@ const Shape: React.FC<{ volume: number; state: AgentState }> = ({
       })}
 
       {/* White line decorations */}
-      {!isDisconnected && lineDecorations.map((line, index) => (
+      {lineDecorations.map((line, index) => (
         <mesh
           key={`line-${index}`}
           geometry={line.geometry}
