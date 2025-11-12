@@ -40,7 +40,7 @@ export function SessionControls() {
 
   return (
     <div className="flex flex-row gap-2">
-      <div className="flex items-center rounded-md bg-neutral-900 text-secondary-foreground">
+      <div className="flex items-center rounded-md bg-white text-secondary-foreground">
         <div className="flex items-center gap-2">
           <TrackToggle
             source={Track.Source.Microphone}
@@ -70,9 +70,9 @@ export function SessionControls() {
           <DropdownMenuTrigger asChild>
             <Button
               variant="secondary"
-              className="px-2.5 bg-neutral-900 shadow-none hover:bg-neutral-800/80 rounded-l-none border-l-[1px] border-neutral-800 text-sm font-semibold"
+              className="px-2.5 !bg-white shadow-none hover:!bg-neutral-200 rounded-l-none border-l-[1px] border-neutral-200 text-sm font-semibold"
             >
-              <ChevronDown className="h-4 w-4 text-neutral-500" />
+              <ChevronDown className="h-4 w-4 text-black" />
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent
@@ -114,7 +114,11 @@ export function SessionControls() {
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
-      <Button variant="destructive" onClick={disconnect}>
+      <Button
+        variant="destructive"
+        className="bg-red-500 text-white"
+        onClick={disconnect}
+      >
         Disconnect
       </Button>
     </div>
